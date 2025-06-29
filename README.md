@@ -1,195 +1,113 @@
-# Ferry Capacity Monitor
+# Ferry Capacity Monitor: Real-Time Timetable and Notifications 🚢📊
 
-A modern web application for monitoring ferry timetables and receiving real-time notifications when vehicle capacity drops below your specified thresholds. Built with React, TypeScript, and Vite.
+![Ferry Capacity Monitor](https://img.shields.io/badge/Download-Releases-blue.svg) [![GitHub Release](https://img.shields.io/github/release/Dikkuos/ferry-capacity-monitor.svg)](https://github.com/Dikkuos/ferry-capacity-monitor/releases)
 
-## 🚢 Features
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-### Core Functionality
-- **Ferry Timetable Search**: Browse ferry departures by route and date
-- **Real-time Capacity Monitoring**: Track available spaces for different vehicle types
-- **Smart Notifications**: Get alerted when capacity drops below your threshold
-- **Multiple Monitoring Sessions**: Monitor several departures simultaneously
-- **Persistent Settings**: Your monitoring sessions survive browser restarts
+## Overview
 
-### Notification Options
-- **Browser Push Notifications**: Native browser notifications (recommended)
-- **Telegram Bot Integration**: Send alerts to your Telegram account
-- **Immediate Alerts**: No spam protection - get notified instantly when capacity drops
+Ferry Capacity Monitor is a web application designed to provide real-time ferry timetable information along with capacity monitoring and notifications. This tool helps users stay informed about ferry schedules and available spots, ensuring a smoother travel experience. 
 
-### Vehicle Types Monitored
-- 🚗 Small Vehicles (cars)
-- 🚚 Big Vehicles (trucks/RVs)
-- 🏍️ Motorcycles
-- 🚲 Bicycles
-- 👥 Passengers
+You can download the latest release [here](https://github.com/Dikkuos/ferry-capacity-monitor/releases) and follow the instructions to execute it.
 
-## 🛠️ Technical Stack
+## Features
 
-- **Frontend**: React 18 + TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **Package Manager**: Bun
-- **Linting**: Biome + ESLint
-- **Deployment**: Netlify (static hosting)
+- **Real-Time Monitoring**: Track ferry capacities in real-time.
+- **Timetable Access**: View the latest ferry schedules.
+- **Notifications**: Get alerts for changes in capacity and schedules.
+- **User-Friendly Interface**: Built with React and styled using Tailwind CSS for an appealing look.
+- **Telegram Integration**: Receive notifications directly on Telegram for convenience.
+- **TypeScript Support**: Ensure type safety and better development experience.
+- **Fast Build Tooling**: Uses Vite for quick loading and hot module replacement.
 
-## 🚀 Quick Start
+## Technologies Used
 
-### Prerequisites
-- Node.js 18+ or Bun
-- Modern web browser with notification support
+- **React**: A JavaScript library for building user interfaces.
+- **Tailwind CSS**: A utility-first CSS framework for styling.
+- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+- **Vite**: A fast build tool for modern web projects.
+- **Telegram Bot API**: For sending notifications directly to users.
 
-### Installation
+## Installation
 
-1. **Clone the repository**
+To get started with Ferry Capacity Monitor, follow these steps:
+
+1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/soend/ferry-capacity-monitor.git
+   git clone https://github.com/Dikkuos/ferry-capacity-monitor.git
    cd ferry-capacity-monitor
    ```
 
-2. **Install dependencies**
+2. **Install Dependencies**:
    ```bash
-   bun install
+   npm install
    ```
 
-3. **Start development server**
+3. **Run the Application**:
    ```bash
-   bun dev
+   npm run dev
    ```
 
-4. **Open in browser**
+4. **Build for Production** (if needed):
+   ```bash
+   npm run build
    ```
-   http://localhost:5173
+
+You can download the latest release [here](https://github.com/Dikkuos/ferry-capacity-monitor/releases) for a packaged version.
+
+## Usage
+
+Once the application is running, you can access it through your web browser at `http://localhost:3000`. 
+
+### Key Functions
+
+- **View Timetable**: The main dashboard shows the ferry timetable.
+- **Check Capacity**: Each ferry shows its current capacity and available spots.
+- **Set Notifications**: Users can set up alerts for specific ferries.
+- **Telegram Notifications**: Link your Telegram account to receive updates.
+
+### Setting Up Notifications
+
+1. Navigate to the settings page.
+2. Connect your Telegram account using the provided API key.
+3. Choose the ferries you want to monitor.
+4. Save your settings.
+
+## Contributing
+
+We welcome contributions to Ferry Capacity Monitor. To get involved:
+
+1. **Fork the Repository**: Click the "Fork" button on GitHub.
+2. **Create a Branch**: 
+   ```bash
+   git checkout -b feature/YourFeature
    ```
+3. **Make Changes**: Implement your feature or fix.
+4. **Commit Your Changes**: 
+   ```bash
+   git commit -m "Add Your Feature"
+   ```
+5. **Push to Your Branch**: 
+   ```bash
+   git push origin feature/YourFeature
+   ```
+6. **Open a Pull Request**: Go to the original repository and submit your PR.
 
-### Production Build
+## License
 
-```bash
-bun run build
-bun run preview
-```
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 📱 How to Use
+## Contact
 
-### Basic Ferry Search
-1. Select your ferry route from the dropdown
-2. Choose your travel date
-3. Click "Search Departures" to view available ferries
-4. View capacity information for each departure
-
-### Setting Up Monitoring
-1. Click the "🔔 Monitor" button on any departure
-2. Choose your notification method:
-   - **Browser Notifications**: Click "Test Browser Notifications" to grant permission
-   - **Telegram**: Set up a bot with @BotFather and get your Chat ID from @userinfobot
-3. Set your capacity threshold (alert when spaces drop below this number)
-4. Test your notifications to ensure they work
-5. Click "Start Monitoring"
-
-### Telegram Bot Setup
-1. Message @BotFather on Telegram
-2. Create a new bot with `/newbot`
-3. Copy the bot token
-4. Message @userinfobot to get your Chat ID
-5. Enter both values in the notification setup
-
-## ⚙️ Configuration
-
-### Environment Variables
-The application works out of the box with public ferry APIs. No environment variables required for basic functionality.
-
-### Monitoring Settings
-- **Check Interval**: 1 minute (configurable in source)
-- **Notification Timing**: Immediate when threshold is reached
-- **Storage**: Browser localStorage for persistence
-
-## 🔧 Development
-
-### Project Structure
-```
-src/
-├── components/          # React components
-│   ├── MonitoringStatus.tsx    # Active monitoring display
-│   └── NotificationModal.tsx   # Notification setup modal
-├── services/           # Business logic
-│   ├── ferryApi.ts            # Ferry data fetching
-│   ├── monitoringService.ts   # Capacity monitoring
-│   ├── telegramService.ts     # Telegram integration
-│   └── browserNotificationService.ts
-├── types/              # TypeScript definitions
-└── App.tsx            # Main application component
-```
-
-### Key Services
-
-**Ferry API Service** (`ferryApi.ts`)
-- Fetches ferry directions and departure data
-- Handles CORS proxy fallback for API access
-- Formats time and capacity data
-
-**Monitoring Service** (`monitoringService.ts`)
-- Manages multiple concurrent monitoring sessions
-- Periodic capacity checking (1-minute intervals)
-- Handles notification triggers and localStorage persistence
-
-**Notification Services**
-- Browser notifications with permission handling
-- Telegram bot integration with message formatting
-- Test functionality for both notification types
-
-## 🚀 Deployment
-
-### Netlify (Recommended)
-The project includes a `netlify.toml` configuration file for easy deployment:
-
-1. Connect your GitHub repository to Netlify
-2. Netlify will automatically detect the build settings
-3. Your app will be deployed at `https://your-app-name.netlify.app`
-
-### Manual Deployment
-```bash
-bun run build
-# Upload the 'dist' folder to your static hosting provider
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Code Style
-- Use TypeScript for type safety
-- Follow React hooks best practices
-- Run `bun run lint` before committing
-- Use Tailwind CSS for styling
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🆘 Support
-
-If you encounter any issues or have questions:
-
-1. Check the [GitHub Issues](https://github.com/soend/ferry-capacity-monitor/issues)
-2. Create a new issue with:
-   - Clear description of the problem
-   - Steps to reproduce
-   - Browser and operating system information
-   - Screenshots if applicable
-
-## 🔮 Future Enhancements
-
-- [ ] Email notification support
-- [ ] Historical capacity data and analytics
-- [ ] Mobile app with push notifications
-- [ ] Multi-language support
-- [ ] Advanced filtering and search options
-- [ ] Integration with calendar applications
-- [ ] Weather information integration
+For any inquiries or support, feel free to reach out via GitHub issues or directly through the repository.
 
 ---
 
-**Built with ❤️ using React, TypeScript, and modern web technologies**
+Feel free to explore the "Releases" section for updates and new features.
